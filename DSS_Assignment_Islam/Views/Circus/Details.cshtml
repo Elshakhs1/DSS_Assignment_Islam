@@ -1,0 +1,71 @@
+﻿@model DSS_Assignment_Islam.Models.Circus
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Circus</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CircusName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CircusName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CircusLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CircusLocation)
+        </dd>
+         <dd class="col-sm-10">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Actors
+                        </th>
+                                                <th>
+                            Actors Age
+                        </th>
+                                                <th>
+                            Actors Speciality
+                        </th>
+
+                 
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Actors)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ActorName)
+                            </td>
+                             <td>
+                                @Html.DisplayFor(modelItem => item.ActorAge)
+                            </td>
+                                                         <td>
+                                @Html.DisplayFor(modelItem => item.ActorSpacielity)
+                            </td>
+                     
+                            <td>
+                                <a asp-controller="Actor" asp-action="Delete" asp-route-id="@item.ActorID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.CircusID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

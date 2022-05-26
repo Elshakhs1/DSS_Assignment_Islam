@@ -1,0 +1,30 @@
+﻿@model DSS_Assignment_Islam.Models.Act
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Act</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actor.ActorName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Trick)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Trick.TrickName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ActID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
